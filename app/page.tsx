@@ -1,3 +1,8 @@
+import Image from "next/image";
+import { ContactForm } from "@/components/contact-form";
+import { IntakeForm } from "@/components/intake-form";
+import { SiteHeader } from "@/components/site-header";
+
 const pillars = [
   {
     number: "01",
@@ -32,19 +37,6 @@ const pillars = [
   },
 ];
 
-function Mark({ light = false }: { light?: boolean }) {
-  return (
-    <span className="brand-mark" aria-hidden="true">
-      <span className={light ? "brand-mark__two is-light" : "brand-mark__two"}>
-        2
-      </span>
-      <span className={light ? "brand-mark__star is-light" : "brand-mark__star"}>
-        ★
-      </span>
-    </span>
-  );
-}
-
 function Arrow() {
   return (
     <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -56,30 +48,25 @@ function Arrow() {
 export default function HomePage() {
   return (
     <>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="2nd Chance at Life, home">
-          <Mark />
-          <span className="brand__name">
-            <strong>2nd Chance</strong>
-            <span>at Life</span>
-          </span>
-        </a>
-
-        <nav aria-label="Main navigation">
-          <a href="#mission">Our mission</a>
-          <a href="#approach">What we provide</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <a className="header-call" href="tel:+17148767622">
-          Call us <span>714-876-7622</span>
-        </a>
-      </header>
+      <SiteHeader />
 
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
+          <div className="hero__art animate-in">
+            <Image
+              src="/2nd-chance-at-life-logo.PNG"
+              alt="2nd Chance at Life"
+              width={1800}
+              height={1200}
+              priority
+              className="hero__seal"
+            />
+          </div>
+
           <div className="hero__content">
-            <p className="eyebrow animate-in">Serving those who served</p>
+            <p className="eyebrow animate-in animate-delay-1">
+              Serving those who served
+            </p>
             <h1 id="hero-title" className="animate-in animate-delay-1">
               Every veteran deserves a{" "}
               <span className="accent-script">second chance.</span>
@@ -90,36 +77,14 @@ export default function HomePage() {
               lasting independence.
             </p>
             <div className="hero__actions animate-in animate-delay-3">
-              <a className="button button--primary" href="#mission">
-                Discover our mission <Arrow />
+              <a className="button button--primary" href="#intake">
+                Start intake <Arrow />
               </a>
               <a className="text-link" href="tel:+17148767622">
                 <span className="phone-dot" aria-hidden="true" />
                 714-876-7622
               </a>
             </div>
-          </div>
-
-          <div
-            className="hero__art animate-in animate-delay-2"
-            aria-hidden="true"
-          >
-            <div className="hero__sun" />
-            <div className="hero__arch">
-              <div className="hero__door">
-                <span />
-              </div>
-            </div>
-            <div className="hero__stars">★&nbsp;&nbsp; ★&nbsp;&nbsp; ★</div>
-            <p>
-              Hope
-              <span>has a home.</span>
-            </p>
-          </div>
-
-          <div className="hero__side-note" aria-hidden="true">
-            <span />
-            Dignity&nbsp; · &nbsp;Recovery&nbsp; · &nbsp;Purpose
           </div>
         </section>
 
@@ -180,12 +145,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="vision" aria-labelledby="vision-title">
-          <div className="vision__graphic" aria-hidden="true">
-            <div className="vision__rings">
-              <Mark />
-            </div>
-            <span className="vision__caption">A new chapter begins here</span>
+        <section className="vision" id="vision" aria-labelledby="vision-title">
+          <div className="vision__graphic">
+            <Image
+              src="/2nd-chance-at-life-logo.PNG"
+              alt=""
+              width={640}
+              height={427}
+              className="vision__logo"
+            />
+            <span className="vision__caption">Rise again</span>
           </div>
           <div className="vision__content">
             <div className="section-label">
@@ -203,26 +172,75 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="contact" id="contact">
-          <div>
-            <p className="eyebrow eyebrow--light">Take the first step</p>
-            <h2>Recovery begins with a conversation.</h2>
-          </div>
-          <div className="contact__action">
+        <section className="intake" id="intake" aria-labelledby="intake-title">
+          <div className="intake__intro">
+            <div className="section-label">
+              <span>04</span>
+              Veteran intake
+            </div>
+            <h2 id="intake-title">Ready for a second chance? Start here.</h2>
             <p>
-              Whether you need support, know a veteran who does, or want to
-              stand with our mission—we’re here to talk.
+              Share a few details and our team will follow up with next steps.
+              If you need help today, call us anytime at{" "}
+              <a href="tel:+17148767622">714-876-7622</a>.
             </p>
-            <a className="button button--cream" href="tel:+17148767622">
-              Call 714-876-7622 <Arrow />
-            </a>
+          </div>
+          <IntakeForm />
+        </section>
+
+        <section className="contact" id="contact" aria-labelledby="contact-title">
+          <div className="contact__layout">
+            <div className="contact__info">
+              <div className="section-label section-label--light">
+                <span>05</span>
+                Contact
+              </div>
+              <h2 id="contact-title">We’re here when you’re ready.</h2>
+              <p>
+                Reach out for support, referrals, volunteering, or partnership
+                questions. Every conversation is confidential and handled with
+                care.
+              </p>
+
+              <dl className="contact__details">
+                <div>
+                  <dt>Phone</dt>
+                  <dd>
+                    <a href="tel:+17148767622">714-876-7622</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Focus</dt>
+                  <dd>Veteran recovery &amp; reintegration</dd>
+                </div>
+                <div>
+                  <dt>Promise</dt>
+                  <dd>Heal. Hope. Purpose.</dd>
+                </div>
+              </dl>
+
+              <a className="button button--cream" href="tel:+17148767622">
+                Call now <Arrow />
+              </a>
+            </div>
+
+            <div className="contact__form-wrap">
+              <h3>Send a message</h3>
+              <ContactForm />
+            </div>
           </div>
         </section>
       </main>
 
       <footer>
         <a className="brand brand--footer" href="#top">
-          <Mark light />
+          <Image
+            className="brand__logo brand__logo--footer"
+            src="/2nd-chance-at-life-logo.PNG"
+            alt=""
+            width={72}
+            height={48}
+          />
           <span className="brand__name">
             <strong>2nd Chance</strong>
             <span>at Life</span>

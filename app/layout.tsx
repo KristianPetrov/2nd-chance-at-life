@@ -20,6 +20,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000",
+  ),
   title: "2nd Chance at Life | Veteran Recovery & Support",
   description:
     "Helping veterans move beyond homelessness through stable housing, sober support, long-term recovery, and a path to sustainable independence.",
@@ -30,6 +35,19 @@ export const metadata: Metadata = {
     "sober living",
     "2nd Chance at Life",
   ],
+  openGraph: {
+    title: "2nd Chance at Life",
+    description:
+      "Stable, sober, compassionate support helping veterans move from homelessness to lasting independence.",
+    type: "website",
+    siteName: "2nd Chance at Life",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "2nd Chance at Life",
+    description:
+      "Stable, sober, compassionate support helping veterans move from homelessness to lasting independence.",
+  },
 };
 
 export default function RootLayout({
