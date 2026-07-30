@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useId, useState } from "react";
+import { LogoFlame } from "@/components/logo-flame";
 
 const navLinks = [
   { href: "#mission", label: "Our mission" },
@@ -40,12 +40,12 @@ export function SiteHeader() {
         aria-label="2nd Chance at Life, home"
         onClick={closeMenu}
       >
-        <Image
+        <LogoFlame
+          size="sm"
           className="brand__logo"
-          src="/2nd-chance-at-life-logo.PNG"
-          alt=""
           width={72}
           height={48}
+          alt=""
           priority
         />
         <span className="brand__name">

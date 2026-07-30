@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { IntakeForm } from "@/components/intake-form";
+import { LogoFlame } from "@/components/logo-flame";
 import { SiteHeader } from "@/components/site-header";
 
 const pillars = [
@@ -53,11 +53,11 @@ export default function HomePage() {
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero__art animate-in">
-            <Image
-              src="/2nd-chance-at-life-logo.PNG"
-              alt="2nd Chance at Life"
+            <LogoFlame
+              size="lg"
               width={1800}
               height={1200}
+              alt="2nd Chance at Life"
               priority
               className="hero__seal"
             />
@@ -147,11 +147,11 @@ export default function HomePage() {
 
         <section className="vision" id="vision" aria-labelledby="vision-title">
           <div className="vision__graphic">
-            <Image
-              src="/2nd-chance-at-life-logo.PNG"
-              alt=""
+            <LogoFlame
+              size="md"
               width={640}
               height={427}
+              alt=""
               className="vision__logo"
             />
             <span className="vision__caption">Rise again</span>
@@ -234,12 +234,12 @@ export default function HomePage() {
 
       <footer>
         <a className="brand brand--footer" href="#top">
-          <Image
-            className="brand__logo brand__logo--footer"
-            src="/2nd-chance-at-life-logo.PNG"
-            alt=""
+          <LogoFlame
+            size="sm"
             width={72}
             height={48}
+            alt=""
+            className="brand__logo brand__logo--footer"
           />
           <span className="brand__name">
             <strong>2nd Chance</strong>

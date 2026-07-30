@@ -72,8 +72,13 @@ a {
 .brand__logo {
   width: 72px;
   height: 48px;
-  object-fit: contain;
   flex-shrink: 0;
+}
+
+.brand__logo .logo-flame__mark {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand__name {
@@ -194,7 +199,7 @@ a {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero__content {
@@ -343,16 +348,232 @@ a {
   position: relative;
   display: grid;
   place-items: center;
-  overflow: hidden;
+  overflow: visible;
   padding: clamp(12px, 2vw, 28px) clamp(16px, 4vw, 48px) 0;
 }
 
 .hero__seal {
-  position: relative;
-  z-index: 1;
   width: min(100%, 1120px);
+}
+
+.hero__seal .logo-flame__mark {
+  width: 100%;
+  height: auto;
+}
+
+.logo-flame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.logo-flame__stage {
+  position: absolute;
+  inset: -28% -16% -12%;
+  z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+  /* Soft elliptical falloff — no hard rectangle edge */
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 78% at 50% 58%,
+    #000 0%,
+    #000 42%,
+    rgba(0, 0, 0, 0.55) 62%,
+    transparent 78%
+  );
+  mask-image: radial-gradient(
+    ellipse 72% 78% at 50% 58%,
+    #000 0%,
+    #000 42%,
+    rgba(0, 0, 0, 0.55) 62%,
+    transparent 78%
+  );
+}
+
+.logo-flame__mark {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   height: auto;
   animation: seal-float 7s ease-in-out infinite;
+}
+
+.logo-flame__glow {
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  filter: blur(22px);
+}
+
+.logo-flame__glow--core {
+  bottom: 18%;
+  width: 42%;
+  height: 38%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 190, 70, 0.55) 0%,
+      rgba(224, 36, 32, 0.45) 42%,
+      transparent 72%
+    );
+  animation: flame-pulse 2.8s ease-in-out infinite;
+}
+
+.logo-flame__glow--halo {
+  bottom: 8%;
+  width: 78%;
+  height: 58%;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(224, 36, 32, 0.28) 0%,
+      rgba(224, 36, 32, 0.08) 48%,
+      transparent 74%
+    );
+  filter: blur(32px);
+  animation: flame-pulse 3.6s ease-in-out infinite reverse;
+}
+
+.logo-flame__plume {
+  position: absolute;
+  bottom: 22%;
+  width: 18%;
+  height: 48%;
+  border-radius: 60% 60% 40% 40%;
+  transform-origin: 50% 100%;
+  filter: blur(12px);
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+
+.logo-flame__plume--left {
+  left: 28%;
+  background: linear-gradient(
+    to top,
+    rgba(224, 36, 32, 0.75),
+    rgba(255, 120, 40, 0.35),
+    transparent
+  );
+  animation: flame-sway 2.4s ease-in-out infinite;
+}
+
+.logo-flame__plume--center {
+  left: 41%;
+  width: 22%;
+  height: 58%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 80, 30, 0.85),
+    rgba(255, 180, 60, 0.45),
+    transparent
+  );
+  animation: flame-sway 1.9s ease-in-out infinite reverse;
+}
+
+.logo-flame__plume--right {
+  left: 56%;
+  background: linear-gradient(
+    to top,
+    rgba(224, 36, 32, 0.7),
+    rgba(255, 140, 50, 0.32),
+    transparent
+  );
+  animation: flame-sway 2.7s ease-in-out infinite 0.35s;
+}
+
+.logo-flame__heat {
+  position: absolute;
+  inset: 10% 8% 18%;
+  background:
+    radial-gradient(
+      ellipse at 50% 70%,
+      rgba(255, 120, 40, 0.18),
+      transparent 60%
+    );
+  filter: blur(24px);
+  animation: flame-pulse 4s ease-in-out infinite;
+}
+
+.logo-flame__embers {
+  position: absolute;
+  inset: 0;
+  /* Embers travel through the flame core */
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 8%,
+    #000 28%,
+    #000 70%,
+    transparent 92%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 8%,
+    #000 28%,
+    #000 70%,
+    transparent 92%
+  );
+}
+
+.logo-flame__ember {
+  position: absolute;
+  bottom: 28%;
+  left: var(--ember-left, 50%);
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 50%;
+  background: #ffd27a;
+  box-shadow:
+    0 0 2px 1px rgba(255, 170, 60, 0.7),
+    0 0 5px rgba(224, 36, 32, 0.45);
+  opacity: 0;
+  /* Long cycle: short flight, long pause — one at a time */
+  animation: ember-rise 22s linear infinite;
+  animation-delay: var(--ember-delay, 0s);
+}
+
+.logo-flame--sm .logo-flame__stage {
+  inset: -42% -34% -28%;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 85% at 50% 55%,
+    #000 0%,
+    #000 40%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 85% at 50% 55%,
+    #000 0%,
+    #000 40%,
+    transparent 72%
+  );
+}
+
+.logo-flame--sm .logo-flame__plume {
+  filter: blur(7px);
+  opacity: 0.5;
+}
+
+.logo-flame--sm .logo-flame__glow--core {
+  filter: blur(10px);
+}
+
+.logo-flame--sm .logo-flame__ember {
+  width: 1px;
+  height: 1px;
+  box-shadow: 0 0 2px rgba(255, 160, 50, 0.65);
+}
+
+.logo-flame--sm .logo-flame__mark {
+  animation: none;
+}
+
+.logo-flame--md .logo-flame__stage {
+  inset: -30% -18% -14%;
+}
+
+.logo-flame--lg .logo-flame__stage {
+  inset: -26% -14% -10%;
 }
 
 @keyframes seal-float {
@@ -362,6 +583,54 @@ a {
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@keyframes flame-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+@keyframes flame-sway {
+  0%,
+  100% {
+    transform: rotate(-4deg) scaleY(0.92) scaleX(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: rotate(5deg) scaleY(1.12) scaleX(0.92);
+    opacity: 0.9;
+  }
+}
+
+/* ~2.4s flight, then idle until the 22s loop repeats */
+@keyframes ember-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.8);
+  }
+  2% {
+    opacity: 0.95;
+  }
+  8% {
+    opacity: 0.85;
+    transform: translate3d(calc(var(--ember-drift, 0) * 0.4), -35%, 0) scale(1);
+  }
+  11% {
+    opacity: 0;
+    transform: translate3d(var(--ember-drift, 0), -95%, 0) scale(0.4);
+  }
+  11.01%,
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--ember-drift, 0), -95%, 0) scale(0.4);
   }
 }
 
@@ -540,7 +809,7 @@ a {
 .vision__graphic {
   position: relative;
   display: grid;
-  overflow: hidden;
+  overflow: visible;
   place-items: center;
   padding: 48px 28px 72px;
   background:
@@ -550,6 +819,10 @@ a {
 
 .vision__logo {
   width: min(100%, 420px);
+}
+
+.vision__logo .logo-flame__mark {
+  width: 100%;
   height: auto;
 }
 
@@ -1171,6 +1444,9 @@ footer > p {
 
   .hero__seal {
     width: min(100%, 720px);
+  }
+
+  .hero__seal .logo-flame__mark {
     animation: none;
   }
 
@@ -1382,5 +1658,16 @@ footer > p {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .logo-flame__ember {
+    opacity: 0 !important;
+  }
+
+  .logo-flame__plume,
+  .logo-flame__glow,
+  .logo-flame__heat {
+    animation: none !important;
+    opacity: 0.55 !important;
   }
 }
