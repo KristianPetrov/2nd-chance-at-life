@@ -80,9 +80,9 @@ export default function HomePage() {
               <a className="button button--primary" href="#intake">
                 Start intake <Arrow />
               </a>
-              <a className="text-link" href="tel:+17148767622">
+              <a className="text-link" href="tel:+15626186191">
                 <span className="phone-dot" aria-hidden="true" />
-                714-876-7622
+                562-618-6191
               </a>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
             <p>
               Share a few details and our team will follow up with next steps.
               If you need help today, call us anytime at{" "}
-              <a href="tel:+17148767622">714-876-7622</a>.
+              <a href="tel:+15626186191">562-618-6191</a>.
             </p>
           </div>
           <IntakeForm />
@@ -206,7 +206,7 @@ export default function HomePage() {
                 <div>
                   <dt>Phone</dt>
                   <dd>
-                    <a href="tel:+17148767622">714-876-7622</a>
+                    <a href="tel:+15626186191">562-618-6191</a>
                   </dd>
                 </div>
                 <div>
@@ -219,7 +219,7 @@ export default function HomePage() {
                 </div>
               </dl>
 
-              <a className="button button--cream" href="tel:+17148767622">
+              <a className="button button--cream" href="tel:+15626186191">
                 Call now <Arrow />
               </a>
             </div>
@@ -249,10 +249,10 @@ export default function HomePage() {
         <p>Serving veterans with dignity, compassion, and purpose.</p>
         <div className="footer__right">
           <a
-            href="tel:+17148767622"
-            aria-label="Call 2nd Chance at Life at 714-876-7622"
+            href="tel:+15626186191"
+            aria-label="Call 2nd Chance at Life at 562-618-6191"
           >
-            714-876-7622
+            562-618-6191
           </a>
           <span>© {new Date().getFullYear()} 2nd Chance at Life</span>
         </div>

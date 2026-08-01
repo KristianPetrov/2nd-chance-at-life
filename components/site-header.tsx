@@ -65,10 +65,10 @@ export function SiteHeader() {
       <div className="header-actions">
         <a
           className="header-call"
-          href="tel:+17148767622"
-          aria-label="Call 2nd Chance at Life at 714-876-7622"
+          href="tel:+15626186191"
+          aria-label="Call 2nd Chance at Life at 562-618-6191"
         >
-          Call us <span>714-876-7622</span>
+          Call us <span>562-618-6191</span>
         </a>
 
         <button
@@ -108,11 +108,11 @@ export function SiteHeader() {
 
         <a
           className="nav-panel__call"
-          href="tel:+17148767622"
+          href="tel:+15626186191"
           tabIndex={open ? 0 : -1}
           onClick={closeMenu}
         >
-          Call 714-876-7622
+          Call 562-618-6191
         </a>
       </div>
 

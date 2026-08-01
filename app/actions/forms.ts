@@ -82,14 +82,14 @@ export async function submitIntake(
     return {
       status: "error",
       message:
-        "We couldn’t save your request right now. Please call us at 714-876-7622.",
+        "We couldn’t save your request right now. Please call us at 562-618-6191.",
     };
   }
 
   return {
     status: "success",
     message:
-      "Thank you. Your intake request was received. Our team will follow up soon—or call 714-876-7622 if you need help right away.",
+      "Thank you. Your intake request was received. Our team will follow up soon—or call 562-618-6191 if you need help right away.",
   };
 }
 
@@ -134,13 +134,13 @@ export async function submitContact(
     return {
       status: "error",
       message:
-        "We couldn’t send your message right now. Please call us at 714-876-7622.",
+        "We couldn’t send your message right now. Please call us at 562-618-6191.",
     };
   }
 
   return {
     status: "success",
     message:
-      "Message received. We’ll get back to you soon—or call 714-876-7622 anytime.",
+      "Message received. We’ll get back to you soon—or call 562-618-6191 anytime.",
   };
 }

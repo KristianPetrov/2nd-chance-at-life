@@ -18,8 +18,8 @@ export function ContactForm() {
     return (
       <div className="form-success" role="status">
         <p>{state.message}</p>
-        <a className="button button--primary" href="tel:+17148767622">
-          Call 714-876-7622
+        <a className="button button--primary" href="tel:+15626186191">
+          Call 562-618-6191
         </a>
       </div>
     );
